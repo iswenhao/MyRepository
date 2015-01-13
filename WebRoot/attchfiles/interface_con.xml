@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="GB2312"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- main listener params -->
+<main>
+	<listeneraddress>localhost</listeneraddress>
+	<listenerport>9800</listenerport>
+	<lookupinterval>60</lookupinterval>
+</main>
+
+<database>
+	<driver>oracle.jdbc.driver.OracleDriver</driver>
+	<url>jdbc:oracle:thin:@192.168.101.32:2012:arsystem</url>
+	<username>zjbam</username>
+	<password>ar#admin#</password>
+	<owner>aradminbam</owner>
+	<maxconn>100</maxconn>
+	<minconn>5</minconn>
+</database>
+
+<system>
+	<address>zjbam</address>
+	<port>3722</port>
+	<username>Demo</username>
+	<password></password>
+</system>
+
+<attachment>
+  <localpath>/u01/zjproject/axis/attchfiles/accessories/</localpath>
+</attachment>
+
+<cs>
+	<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="HuaWei Incident New" arfid="536870915">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<outSystem dbf="S32_1" arfid="580000001" arftype="CHAR"/>
+			<serialNo dbf="S32_3" arfid="580000002" arftype="CHAR"/>
+			<workItemId dbf="S32_2" arfid="580000003" arftype="CHAR"/>
+			<subsNumber dbf="S32_4" arfid="580000004" arftype="CHAR"/>
+			<serviceContent dbf="S2048_1" arfid="580000005" arftype="CHAR"/>
+			<handlingComment dbf="S2048_2" arfid="580000006" arftype="CHAR"/>
+			<srTypeID dbf="S256_1" arfid="580000007" arftype="CHAR"/>
+			<subsCity dbf="S32_5" arfid="580000008" arftype="CHAR"/>
+			<acceptCity dbf="S32_6" arfid="580000009" arftype="CHAR"/>
+			<handlingStaff dbf="S64_1" arfid="580000010" arftype="CHAR"/>
+			<contactPerson dbf="S128_1" arfid="580000011" arftype="CHAR"/>
+			<contactPhone1 dbf="S64_2" arfid="580000012" arftype="CHAR"/>
+			<contactPhone2 dbf="S64_3" arfid="580000013" arftype="CHAR"/>
+			<address dbf="S256_2" arfid="580000014" arftype="CHAR"/>
+			<acceptTime dbf="S32_7" arfid="580000015" arftype="TIME"/>
+			<creationTime dbf="S32_8" arfid="580000016" arftype="TIME"/>
+			<subsLevel dbf="S32_9" arfid="580000017" arftype="CHAR"/>
+			<urgentID dbf="S32_10" arfid="580000018" arftype="CHAR"/>
+			<completeTime dbf="S32_11" arfid="580000019" arftype="TIME"/>
+			<affixName dbf="S256_3" arfid="580000020" arftype="CHAR"/>
+			<affixFullUrl dbf="S2048_3" arfid="580000022,580000023" arftype="ATTACH"/>
+            <complainType dbf="S256_4" arfid="536870920" arftype="CHAR"/>
+			<!-- ... -->
+		</createProcess>
+	</server>
+	<!--client url="http://10.70.60.133:8181/cspRouter1.5/services/RemoteReplyService"-->
+	<client url="http://10.70.9.197:8801/CSPRouter/services/RemoteReplyService">	
+	<!--<client url="http://10.70.21.78:8080/csp/services/pbh/c_pbh_remoteReplyWebService">-->
+        <reply>
+			<S32_1 vn="serialNo"/>
+			<S32_2 vn="workItemId"/>
+			<S32_3 vn="outSystem"/>
+            <S64_1 vn="handlingStaff"/>
+            <S64_2 vn="completeTime"/>
+		    <S64_3 vn="replyType"/>
+			<S2048_1 vn="handlingComment"/>
+            <S256_2 vn="att_bogusname"/>
+            <S256_3 vn="affixName"/>
+            <S2048_2 vn="affixFullUrl"/>
+	
+	</reply>
+	</client>
+</cs>
+
+<boss>
+	<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="BOCO incident" arfid="536870917">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<ticketid dbf="S32_2" arfid="536870914" arftype="CHAR"/>
+			<alarmText dbf="S2048_1" arfid="536870926" arftype="CHAR"/>
+			<alarmTitle dbf="S2048_2" arfid="536870925" arftype="CHAR"/>
+			<Group dbf="S128_1" arfid="536870916" arftype="CHAR"/>
+			<event_time dbf="S32_7" arfid="536870929" arftype="TIME"/>
+			<processTime dbf="S32_8" arfid="536870922" arftype="TIME"/>
+			<redefine_severity dbf="S32_10" arfid="536870920" arftype="CHAR"/>
+			<syscoming dbf="S64_3" arfid="536870927" arftype="CHAR"/>
+		</createProcess>
+	</server>
+	<client url="http://10.70.60.39:8080/TicketReceiver/services/TicketReceiver">		
+             <reply>
+			<S32_2 vn="ticketid"/>
+			<S64_1 vn="charge"/>
+			<S64_2 vn="delete_time"/>
+			<S64_4 vn="ip_address"/>
+		    </reply>
+	</client>
+	<newclient url="http://20.26.11.29:28080/TicketReceiveHandle/services/TicketReceive">		
+             <reply>
+			<S32_2 vn="ticketid"/>
+			<S64_1 vn="charge"/>
+			<S64_2 vn="delete_time"/>
+			<S64_4 vn="ip_address"/>
+		    </reply>
+	</newclient>
+</boss>
+
+<bam>
+<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="HuaWei Incident New" arfid="536870915">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<serialNo dbf="S32_2" arfid="580000002" arftype="CHAR"/>
+            <serviceContent dbf="S2048_1" arfid="580000005" arftype="CHAR"/>
+            <acceptTime dbf="S32_7" arfid="580000015" arftype="TIME"/>
+            <table_classid dbf="S32_11" arfid="536870918" arftype="INTEGER"/>
+		</createProcess>
+	</server>
+</bam>
+
+<bam_task>
+<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="OA_Incident" arfid="536870934">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<applicant dbf="S64_1" arfid="536870913" arftype="CHAR"/>
+            <department dbf="S64_2" arfid="536870914" arftype="CHAR"/>
+            <phone dbf="S64_3" arfid="536870915" arftype="CHAR"/>
+            <mail dbf="S32_3" arfid="536870916" arftype="CHAR"/>
+			<system dbf="S32_4" arfid="536870917" arftype="CHAR"/>
+			<cause dbf="S2048_1" arfid="536870918" arftype="CHAR"/>
+			<finishtime dbf="S32_5" arfid="536870937" arftype="TIME"/>
+			<attachname dbf="S256_3" arfid="536870921" arftype="CHAR"/>
+			<attach dbf="S2048_3" arfid="536880912" arftype="ATTACH"/>
+			<ID dbf="S32_2" arfid="536870922" arftype="CHAR"/>
+			<seq dbf="S32_1" arfid="536870923" arftype="INTEGER"/>
+			<region dbf="S128_1" arfid="536870924" arftype="CHAR"/>
+		</createProcess>
+	</server>
+</bam_task>
+
+<oa>
+<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="OA_Incident" arfid="536870934">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<applicant dbf="S64_1" arfid="536870913" arftype="CHAR"/>
+            <department dbf="S64_2" arfid="536870914" arftype="CHAR"/>
+            <phone dbf="S64_3" arfid="536870915" arftype="CHAR"/>
+            <mail dbf="S32_3" arfid="536870916" arftype="CHAR"/>
+			<system dbf="S32_4" arfid="536870917" arftype="CHAR"/>
+			<cause dbf="S2048_1" arfid="536870918" arftype="CHAR"/>
+			<finishtime dbf="S32_5" arfid="536870919" arftype="INTEGER"/>
+			<attachname dbf="S256_3" arfid="536870921" arftype="CHAR"/>
+			<attach dbf="S2048_3" arfid="536880912" arftype="ATTACH"/>
+			<ID dbf="S32_2" arfid="536870922" arftype="CHAR"/>
+			<seq dbf="S32_1" arfid="536870923" arftype="INTEGER"/>
+			<region dbf="S128_1" arfid="536870924" arftype="CHAR"/>
+		</createProcess>
+	</server>
+<!-- soyo : this is testing address -->
+    
+<!-- client url="http://10.70.86.224:9080/RemedyProxy/services/RemedyProxy_Remedy2Account" -->	
+
+<!-- soyo : this is product address -->
+
+<client url="http://esb01.zj.chinamobile.com:81/RemedyProxy2/services/RemedyProxy_Remedy2Account">
+            
+<reply>
+            <S32_1 vn="ID"/>
+			<S32_2 vn="status"/>
+			<S32_3 vn="taskid"/>
+		    <S32_4 vn="modifyDate"/>
+			<S64_1 vn="dealer"/>
+			<S64_2 vn="contactNo"/>
+			<S2048_1 vn="worklog"/>
+</reply>
+	</client>
+</oa>
+<oait>
+<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="OA_Incident" arfid="536870934">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<applicant dbf="S64_1" arfid="536870913" arftype="CHAR"/>
+            <department dbf="S64_2" arfid="536870914" arftype="CHAR"/>
+            <phone dbf="S64_3" arfid="536870915" arftype="CHAR"/>
+            <mail dbf="S32_3" arfid="536870916" arftype="CHAR"/>
+			<system dbf="S32_4" arfid="536870917" arftype="CHAR"/>
+			<cause dbf="S2048_1" arfid="536870918" arftype="CHAR"/>
+			<finishtime dbf="S32_5" arfid="536870937" arftype="TIME"/>
+			<attachname dbf="S256_3" arfid="536870921" arftype="CHAR"/>
+			<attach dbf="S2048_3" arfid="536880912" arftype="ATTACH"/>
+			<ID dbf="S32_2" arfid="536870922" arftype="CHAR"/>
+			<seq dbf="S32_1" arfid="536870982" arftype="CHAR"/>
+			<region dbf="S128_1" arfid="536870924" arftype="CHAR"/>
+            <oait_area dbf="S256_1" arfid="536870980" arftype="CHAR"/>
+			<task_classone dbf="S256_2" arfid="536870978" arftype="CHAR"/>
+			<task_classtwo dbf="S256_4" arfid="536870979" arftype="CHAR"/>
+		</createProcess>
+	</server>
+    <client url="http://10.70.86.57/oa/zmcc/trouble_yw.nsf/ITServiceWs?openagent&amp;ws=RemdyWebService">
+            <reply>
+            <S32_1 vn="ID"/>
+			<S32_2 vn="status"/>
+			<S32_5 vn="taskid"/>
+		    <S32_4 vn="modifyDate"/>
+			<S64_1 vn="dealer"/>
+			<S64_2 vn="contactNo"/>
+			<S2048_1 vn="worklog"/>
+			<S256_3 vn="Dou_class"/>
+			<S256_1 vn="attachname"/>
+            <S2048_2 vn="attach"/>
+		    </reply>
+	</client>
+</oait>
+<safe>
+<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="OA_Incident" arfid="536870934">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+            <title dbf="S2048_2" arfid="536870938" arftype="CHAR"/>
+            <PRI dbf="S32_6" arfid="536870939" arftype="CHAR"/>
+			<applicant dbf="S64_1" arfid="536870913" arftype="CHAR"/>
+            <department dbf="S64_2" arfid="536870914" arftype="CHAR"/>
+            <phone dbf="S64_3" arfid="536870915" arftype="CHAR"/>
+            <mail dbf="S32_3" arfid="536870916" arftype="CHAR"/>
+			<system dbf="S32_4" arfid="536870917" arftype="CHAR"/>
+			<cause dbf="S2048_1" arfid="536870918" arftype="CHAR"/>
+			<finishtime dbf="S32_5" arfid="536870937" arftype="TIME"/>
+			<attachname dbf="S256_3" arfid="536870921" arftype="CHAR"/>
+			<attach dbf="S2048_3" arfid="536880912" arftype="ATTACH"/>
+			<ID dbf="S32_2" arfid="536870922" arftype="CHAR"/>
+			<seq dbf="S32_1" arfid="536870923" arftype="INTEGER"/>
+			<region dbf="S128_1" arfid="536870924" arftype="CHAR"/>
+		</createProcess>
+		<RevertProcess fntype="MODIFY">
+            <cheaker dbf="S64_1" arfid="536870968" arftype="CHAR"/>
+			<cheak_note dbf="S2048_2" arfid="536870928" arftype="CHAR"/>
+            <score dbf="S64_2" arfid="536870970" arftype="CHAR"/>
+            <imep_status dbf="S32_3" arfid="536870971" arftype="CHAR"/>
+            <ID dbf="S32_2" arfid="536870922" arftype="CHAR"/>
+            <imep_cheak_note dbf="S256_1" arfid="536870969" arftype="CHAR"/>
+      </RevertProcess>
+	</server>
+    <client url="http://10.70.181.141:8080/soc/services/OuterAdapter">		
+            <reply>
+            <S32_1 vn="missioncode"/>
+			<S32_2 vn="status"/>
+            <S32_6 vn="mChrGroup"/>
+			<S64_1 vn="dealer"/>
+			<S64_2 vn="ContactNo"/>
+			<S2048_1 vn="result"/>
+		    <S32_4 vn="finishtime"/>
+		    </reply>
+	</client>
+</safe>
+<safe_event>
+	<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="HuaWei Incident New" arfid="536870915">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<serialNo dbf="S32_3" arfid="580000002" arftype="CHAR"/>
+			<workItemId dbf="S32_2" arfid="580000003" arftype="CHAR"/>
+			<contactPerson dbf="S128_1" arfid="580000011" arftype="CHAR"/>
+			<acceptTime dbf="S32_7" arfid="580000015" arftype="TIME"/>
+			<completeTime dbf="S32_11" arfid="580000019" arftype="TIME"/>
+			<Had_Group dbf="S64_1" arfid="580000031" arftype="CHAR"/>
+			<Had_Person dbf="S64_2" arfid="580000029" arftype="CHAR"/>
+			<serviceContent dbf="S2048_1" arfid="580000005" arftype="CHAR"/>
+			<affixName dbf="S256_3" arfid="580000020" arftype="CHAR"/>
+			<affixFullUrl dbf="S2048_3" arfid="580000022,580000023" arftype="ATTACH"/>
+			<!-- ... -->
+		</createProcess>
+	</server>
+	<client url="">		
+        <reply>
+			<S32_1 vn="serialNo"/>
+			<S32_2 vn="workItemId"/>
+            <S32_3 vn="completeTime"/>
+            <S64_1 vn="Had_Group"/>
+			<S64_2 vn="Had_Person"/>
+			<S2048_1 vn="handlingComment"/>
+	</reply>
+	</client>
+</safe_event>
+<imep>
+<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="OA_Incident" arfid="536870934">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+		    <title dbf="S2048_2" arfid="536870938" arftype="CHAR"/>
+			<applicant dbf="S64_1" arfid="536870913" arftype="CHAR"/>
+            <department dbf="S64_2" arfid="536870914" arftype="CHAR"/>
+            <phone dbf="S64_3" arfid="536870915" arftype="CHAR"/>
+            <mail dbf="S32_3" arfid="536870916" arftype="CHAR"/>
+			<system dbf="S32_4" arfid="536870917" arftype="CHAR"/>
+			<cause dbf="S2048_1" arfid="536870918" arftype="CHAR"/>
+			<finishtime dbf="S32_5" arfid="536870937" arftype="TIME"/>
+			<attachname dbf="S256_3" arfid="536870921" arftype="CHAR"/>
+			<attach dbf="S2048_3" arfid="536880912" arftype="ATTACH"/>
+			<ID dbf="S32_2" arfid="536870922" arftype="CHAR"/>
+			<seq dbf="S32_1" arfid="536870923" arftype="INTEGER"/>
+			<region dbf="S128_1" arfid="536870924" arftype="CHAR"/>
+		</createProcess>
+		<RevertProcess fntype="MODIFY">
+            <cheaker dbf="S64_1" arfid="536870968" arftype="CHAR"/>
+			<cheak_note dbf="S2048_2" arfid="536870969" arftype="CHAR"/>
+            <score dbf="S64_2" arfid="536870970" arftype="CHAR"/>
+            <imep_status dbf="S32_3" arfid="536870971" arftype="CHAR"/>
+            <ID dbf="S32_2" arfid="536870922" arftype="CHAR"/>
+      </RevertProcess>
+	  <RedisposeProcess fntype="MODIFY">
+            <start_distime dbf="S64_1" arfid="536870977" arftype="TIME"/>
+			<worklog dbf="S2048_2" arfid="536870928" arftype="CHAR"/>
+            <com_distime dbf="S64_2" arfid="536870973" arftype="TIME"/>
+            <attachname dbf="S256_3" arfid="536870921" arftype="CHAR"/>
+            <attach dbf="S2048_3" arfid="536880912" arftype="ATTACH"/>
+            <taskid dbf="S32_2" arfid="536870926" arftype="CHAR"/>
+            <imep_discom dbf="S32_4" arfid="536870974" arftype="CHAR"/>
+            <ID dbf="S32_5" arfid="536870922" arftype="CHAR"/>
+      </RedisposeProcess>
+	</server>
+    <client url="http://10.70.85.91:7001/frameweb/ReceiveRemedyService.jws">		
+            <reply>
+            <S32_1 vn="ID"/>
+			<S32_2 vn="status"/>
+			<S32_3 vn="taskid"/>
+		    <S32_4 vn="modifyDate"/>
+			<S64_1 vn="dealer"/>
+			<S64_2 vn="contactNo"/>
+            <S256_3 vn="attachname"/>
+			<S2048_1 vn="worklog"/>
+            <S2048_2 vn="attach"/>
+		    </reply>
+			<create>
+            <S32_1 vn="finishtime"/>
+			<S32_2 vn="taskid"/>
+			<S32_3 vn="applicant"/>
+		    <S32_4 vn="department"/>
+			<S64_1 vn="region"/>
+			<S256_2 vn="title"/>
+            <S256_3 vn="attachname"/>
+			<S2048_1 vn="cause"/>
+            <S2048_2 vn="attach"/>
+		    </create>
+			<cheak>
+            <S32_1 vn="status"/>
+			<S32_2 vn="taskid"/>
+			<S32_3 vn="ID"/>
+		    <S32_4 vn="modifyDate"/>
+			<S32_5 vn="dealer"/>
+			<S64_1 vn="contactNo"/>
+			<S2048_1 vn="worklog"/>
+		    </cheak>
+	</client>
+</imep>
+<mak>
+<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="OA_Incident" arfid="536870934">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+            <title dbf="S2048_2" arfid="536870938" arftype="CHAR"/>
+            <PRI dbf="S32_6" arfid="536870939" arftype="CHAR"/>
+			<applicant dbf="S64_1" arfid="536870913" arftype="CHAR"/>
+            <department dbf="S64_2" arfid="536870914" arftype="CHAR"/>
+            <phone dbf="S64_3" arfid="536870915" arftype="CHAR"/>
+            <mail dbf="S32_3" arfid="536870916" arftype="CHAR"/>
+			<system dbf="S32_4" arfid="536870917" arftype="CHAR"/>
+			<cause dbf="S2048_1" arfid="536870918" arftype="CHAR"/>
+			<finishtime dbf="S32_5" arfid="536870937" arftype="TIME"/>
+			<attachname dbf="S256_3" arfid="536870921" arftype="CHAR"/>
+			<attach dbf="S2048_3" arfid="536880912" arftype="ATTACH"/>
+			<ID dbf="S32_2" arfid="536870922" arftype="CHAR"/>
+			<seq dbf="S32_1" arfid="536870923" arftype="INTEGER"/>
+			<region dbf="S128_1" arfid="536870924" arftype="CHAR"/>
+		</createProcess>
+	</server>
+    <client url="http://10.70.9.164:9801/zjmarket/services/ServiceForREMEDY">		
+            <reply>
+            <S32_1 vn="ID"/>
+			<S32_2 vn="status"/>
+			<S32_3 vn="taskid"/>
+		    <S32_4 vn="modifyDate"/>
+			<S64_1 vn="dealer"/>
+			<S64_2 vn="contactNo"/>
+            <S256_3 vn="attachname"/>
+			<S2048_1 vn="worklog"/>
+			<S2048_2 vn="attach"/>
+		    </reply>
+	</client>
+</mak>
+<cmdb_zyfp>
+<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="CMDB_ResourceDistribute_inter" arfid="536870917">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<formType dbf="S64_1" arfid="536870913" arftype="CHAR"/>
+            <completeData dbf="S32_5" arfid="536870914" arftype="CHAR"/>
+            <desc dbf="S2048_1" arfid="536870915" arftype="CHAR"/>
+            <formID dbf="S32_2" arfid="536870916" arftype="CHAR"/>
+		</createProcess>
+	</server>
+</cmdb_zyfp>
+<req>
+	<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="New_Task_Interface" arfid="536870934">		
+		<createProcess fntype="CREATE">			
+			<applicant dbf="S64_1" arfid="580000029" arftype="CHAR"/>			
+			<title dbf="S2048_2" arfid="580000002" arftype="CHAR"/>			
+			<PRI dbf="S32_6" arfid="580000003" arftype="CHAR"/>			
+			<department dbf="S64_2" arfid="580000004" arftype="CHAR"/>			
+			<phone dbf="S64_3" arfid="580000005" arftype="CHAR"/>			
+			<mail dbf="S32_3" arfid="580000006" arftype="CHAR"/>			
+			<mission dbf="S256_1" arfid="580000007" arftype="CHAR"/>			
+			<submission dbf="S256_2" arfid="580000008" arftype="CHAR"/>			
+			<system dbf="S32_4" arfid="580000009" arftype="CHAR"/>			
+			<cause dbf="S2048_1" arfid="580000010" arftype="CHAR"/>			
+			<finishtime dbf="S32_5" arfid="536870916" arftype="TIME"/>			
+			<attach dbf="S2048_3" arfid="580000011" arftype="ATTACH"/>			
+			<attachname dbf="S256_3" arfid="536870915" arftype="CHAR"/>			
+			<ID dbf="S32_7" arfid="580000026" arftype="CHAR"/>			
+			<seq  dbf="S32_1" arfid="580000018" arftype="INTEGER"/>			
+			<region dbf="S128_1" arfid="536870919" arftype="CHAR"/>		
+		</createProcess>	
+	</server>	
+	<client url="http://10.70.181.141:8080/soc3.1/services/ReqOuterAdapter?wsdl">		      
+		<reply>			
+		<S32_2 vn="status"/>				
+		<S32_3 vn="taskid"/>					
+		<S32_1 vn="ID"/>			
+		<S256_3 vn="attachname"/>			
+		<S2048_2 vn="attach"/>						
+		<S2048_1 vn="worklog"/>	
+		</reply>	
+	</client>
+</req>
+	
+<!-- 集团事件单接口 -->
+<jte>	
+	<!-- arform : Remedy's table name -->	
+	<!-- arfid : Remedy table's field_id -->	
+	<server arform="UlrtaPower_Incident_JTE" arfid="580000001">		
+		<!-- fntype : CREATE/MODIFY -->		
+		<!-- fntimes : for modify function, SINGLE/MULTI -->		
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->		
+		<createProcess fntype="CREATE">			
+				
+				<!--FORMSEQ dbf="FORMSEQ" arfid="" arftype="CHAR"/-->			
+				<!--CREATETIME dbf="CREATETIME" arfid="" arftype="TIME"/-->			
+				<!--RESENDFLAG dbf="RESENDFLAG" arfid="" arftype="CHAR"/-->			
+				<!--FILENAME dbf="FILENAME" arfid="" arftype="CHAR"/-->			
+				<!--ERRSMG dbf="ERRSMG" arfid="" arftype="CHAR"/-->			
+				<!--SEQ dbf="SEQ" arfid="" arftype="CHAR"/-->			
+				<!--OID dbf="OID" arfid="" arftype="CHAR"/-->			
+				
+				<ID dbf="ID" arfid="580000011" arftype="CHAR"/>		
+				<ASKERNAME dbf="ASKERNAME" arfid="580000018" arftype="CHAR"/>			
+				<REGTIME dbf="REGTIME" arfid="536870921" arftype="CHAR"/>			
+				<PLACE dbf="PLACE" arfid="580000012" arftype="CHAR"/>			
+				<HAPPENTIME dbf="HAPPENTIME" arfid="580000016" arftype="CHAR"/>			
+				<UPDATETIME dbf="UPDATETIME" arfid="580000019" arftype="CHAR"/>			
+				<BIZRESUMETIME dbf="BIZRESUMETIME" arfid="536870922" arftype="CHAR"/>			
+				<KIND dbf="KIND" arfid="580000015" arftype="CHAR"/>			
+				<ORIGIN dbf="ORIGIN" arfid="580000010" arftype="CHAR"/>			
+				<INCIDENCE dbf="INCIDENCE" arfid="580000009" arftype="CHAR"/>			
+				<PRIORITY dbf="PRIORITY" arfid="536870919" arftype="CHAR"/>							
+				<LIMITEDTIME dbf="LIMITEDTIME" arfid="536870920" arftype="CHAR"/>					
+				<SYSTYPE dbf="SYSTYPE" arfid="536870916" arftype="CHAR"/>			
+				<SYSSUBTYPE dbf="SYSSUBTYPE" arfid="536870917" arftype="CHAR"/>			
+				<CLASS dbf="CLASS" arfid="580000007" arftype="CHAR"/>			
+				<SUBCLASS dbf="SUBCLASS" arfid="580000008" arftype="CHAR"/>			
+				<TITLE dbf="TITLE" arfid="580000005" arftype="CHAR"/>			
+				<DESCRIBE dbf="DESCRIBE" arfid="580000006" arftype="CHAR"/>			
+				<SOLVER dbf="SOLVER" arfid="536870915" arftype="CHAR"/>			
+				<STATUS dbf="STATUS" arfid="580000013" arftype="CHAR"/>		
+				<RECEIVER dbf="RECEIVER" arfid="580000004" arftype="CHAR"/>			
+				<SOLUTION dbf="SOLUTION" arfid="580000017" arftype="CHAR"/>			
+				<STOPBIZ1 dbf="STOPBIZ1" arfid="536870924" arftype="CHAR"/>			
+				<STOPBIZ2 dbf="STOPBIZ2" arfid="536870918" arftype="CHAR"/>			
+				<STOPBIZ3 dbf="STOPBIZ3" arfid="536870925" arftype="CHAR"/>			
+				<ENDCODE dbf="ENDCODE" arfid="536870923" arftype="CHAR"/>			
+				<REPEATFLAG dbf="REPEATFLAG" arfid="536870926" arftype="CHAR"/>			
+				<TIMEOUTFLAG dbf="TIMEOUTFLAG" arfid="536870927" arftype="CHAR"/>			
+				<SOLVERROLE dbf="SOLVERROLE" arfid="536870928" arftype="CHAR"/>			
+				<STARTTIME dbf="STARTTIME" arfid="536870929" arftype="CHAR"/>			
+				<ENDTIME dbf="ENDTIME" arfid="536870930" arftype="CHAR"/>	
+				
+				<MANUFACTURE dbf="MANUFACTURE" arfid="536870931" arftype="CHAR"/>			
+				<CI dbf="CI" arfid="536870933" arftype="CHAR"/>			
+				<ATTACHFLAG dbf="ATTACHFLAG" arfid="536870934" arftype="CHAR"/>	
+						
+				<ATTNAME dbf="ATTNAME" arfid="580000020" arftype="CHAR"/>			
+				
+				<ATTID dbf="ATTID" arfid="536870938" arftype="CHAR"/>	
+				<ALREPORTEDFLAG dbf="ALREPORTEDFLAG" arfid="536870937" arftype="CHAR"/>	
+				<CIINFO dbf="CIINFO" arfid="536870932" arftype="CHAR"/>	
+				<ATTACHINFO dbf="ATTACHINFO" arfid="580000014" arftype="CHAR"/>	
+				
+				<!--集团规范2.8.7新增字段-->	
+				<CHECKREASON dbf="CHECKREASON" arfid="800020001" arftype="CHAR"/>
+				<SUBCHECKREASON1 dbf="SUBCHECKREASON1" arfid="800020002" arftype="CHAR"/>
+				<SUBCHECKREASON2 dbf="SUBCHECKREASON2" arfid="800020003" arftype="CHAR"/>
+				<REASONANALYSE dbf="REASONANALYSE" arfid="800020004" arftype="CHAR"/>
+			    <AFFECTREGION dbf="AFFECTREGION" arfid="800020005" arftype="CHAR"/>			
+				
+				
+				<affixName dbf="S256_3" arfid="536870935" arftype="CHAR"/>			
+				<affixFullUrl dbf="S2048_3" arfid="580000022,580000023" arftype="ATTACH"/>            
+				
+		</createProcess>	
+	</server>
+	<ftp><!-- ftp://tlq2:tlq2@10.70.196.55:21 -->
+		 <url>ftp://root:1QAZ2WSX@10.70.60.133:21</url>
+		 <ftpReplacePath>/home/tlq2</ftpReplacePath>
+	</ftp>
+</jte>
+<!-- 集团事件单接口 -->
+<!-- 两级协作单 -->
+<odr>	
+	<!-- arform : Remedy's table name -->	
+	<!-- arfid : Remedy table's field_id -->	
+	<server arform="UlrtaPower_Incident_ODR" arfid="580000001">		
+		<!-- fntype : CREATE/MODIFY -->		
+		<!-- fntimes : for modify function, SINGLE/MULTI -->		
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->		
+		<createProcess fntype="CREATE">
+			<FORMSEQ dbf="FORMSEQ" arfid="536870947" arftype="CHAR"/>
+			<CREATETIME dbf="CREATETIME" arfid="536870948" arftype="TIME"/>
+			<RESENDFLAG dbf="RESENDFLAG" arfid="536870949" arftype="CHAR"/>
+			<FILENAME dbf="FILENAME" arfid="536870950" arftype="CHAR"/>
+			<ERRSMG dbf="ERRSMG" arfid="536870951" arftype="CHAR"/>
+			<SEQ dbf="SEQ" arfid="536870952" arftype="CHAR"/>
+			<OID dbf="OID" arfid="536870953" arftype="CHAR"/>
+			<ID dbf="ID" arfid="580000011" arftype="CHAR"/>	
+			<ASKERNAME dbf="ASKERNAME" arfid="580000018" arftype="CHAR"/>
+			<REGTIME dbf="REGTIME" arfid="536870921" arftype="TIME"/>
+			<UPDATETIME dbf="UPDATETIME" arfid="580000019" arftype="TIME"/>
+			<ORIGIN dbf="ORIGIN" arfid="580000010" arftype="CHAR"/>
+			<TYPE dbf="TYPE" arfid="536870946" arftype="CHAR"/>
+			<PRIORITY dbf="PRIORITY" arfid="536870919" arftype="CHAR"/>
+			<LIMITENDTIME dbf="LIMITENDTIME" arfid="536870920" arftype="TIME"/>
+			<TITLE dbf="TITLE" arfid="580000005" arftype="CHAR"/>			
+			<DESCRIBE dbf="DESCRIBE" arfid="580000006" arftype="CHAR"/>
+			<STATUS dbf="STATUS" arfid="580000013" arftype="CHAR"/>
+			<RECEIVER dbf="RECEIVER" arfid="580000004" arftype="CHAR"/>
+			<STARTTIME dbf="STARTTIME" arfid="536870929" arftype="TIME"/>			
+			<ATTACHFLAG dbf="ATTACHFLAG" arfid="536870934" arftype="CHAR"/>
+			<ATTNAME dbf="ATTNAME" arfid="580000020" arftype="CHAR"/>
+			<ATTID dbf="ATTID" arfid="536870938" arftype="CHAR"/>
+			<affixName dbf="S256_3" arfid="536870935" arftype="CHAR"/>			
+			<affixFullUrl dbf="S2048_3" arfid="580000022,580000023" arftype="ATTACH"/>
+			
+			<SOLVER dbf="SOLVER" arfid="536870915" arftype="CHAR"/>
+			<SOLUTION dbf="SOLUTION" arfid="580000017" arftype="CHAR"/>
+			<ENDCODE dbf="ENDCODE" arfid="536870923" arftype="CHAR"/>
+			
+			<ENDTIME dbf="ENDTIME" arfid="536870930" arftype="TIME"/>
+			<CHECKCONTENT dbf="CHECKCONTENT" arfid="536870954" arftype="CHAR"/><!-- 审核意见 -->
+		</createProcess>
+	</server>
+	<ftp><!-- ftp://root:1QAZ2WSX@10.70.60.133:21 -->
+		 <url>ftp://tlq2:tlq2@10.70.196.55:21</url>
+		 <ftpReplacePath>/home/tlq2</ftpReplacePath>
+	</ftp>
+</odr>
+<sdmpevent>
+	<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="HuaWei Incident New" arfid="536870915">
+		<!-- fntype : CREATE/MODIFY -->
+		<!-- fntimes : for modify function, SINGLE/MULTI -->
+		<!-- arftype : CHAR/TIME/ENUM/ATTACH/INTEGER/ULONG -->
+		<createProcess fntype="CREATE">
+			<outSystem dbf="S32_1" arfid="580000001" arftype="CHAR"/>
+			<serialNo dbf="S32_3" arfid="580000002" arftype="CHAR"/>
+			<workitemID dbf="S32_2" arfid="580000003" arftype="CHAR"/>
+			<serviceContent dbf="S2048_1" arfid="580000005" arftype="CHAR"/>
+			<handlingStaff dbf="S64_1" arfid="580000010" arftype="CHAR"/>
+			<contactPerson dbf="S128_1" arfid="580000011" arftype="CHAR"/>
+			<contactPhone dbf="S64_2" arfid="580000012" arftype="CHAR"/>
+			<creationTime dbf="S32_8" arfid="580000016" arftype="TIME"/>
+			<urgentID dbf="S32_10" arfid="580000018" arftype="CHAR"/>
+			<completeTime dbf="S32_11" arfid="580000019" arftype="TIME"/>
+            <Disposal_team dbf="S2048_2" arfid="580000006" arftype="CHAR"/>
+            <complainType dbf="S256_4" arfid="536870920" arftype="CHAR"/>
+		</createProcess>
+	</server>
+	<!-- <client url="http://10.70.204.36:8080/axis2/services/ReplyService.ReplyServiceHttpSoap12Endpoint/"> -->	
+	<client url="http://10.70.204.36/axis2/services/ReplyService">	
+        <reply>
+			<S32_3 vn="outSystem"/>
+			<S32_1 vn="serialNo"/>
+            <S64_2 vn="completeTime"/>
+            <S64_1 vn="handlingStaff"/>
+			<S2048_1 vn="handlingComment"/>
+			<S32_2 vn="status"/>
+		</reply>
+	</client>
+</sdmpevent>
+<sdmptask>
+	<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="New_Task_Interface" arfid="536870934">
+		<createProcess fntype="CREATE">
+			<applicant dbf="S64_1" arfid="580000029" arftype="CHAR"/>
+			<title dbf="S2048_2" arfid="580000002" arftype="CHAR"/>
+			<PRI dbf="S32_6" arfid="580000003" arftype="CHAR"/>
+			<department dbf="S64_2" arfid="580000004" arftype="CHAR"/>
+			<phone dbf="S64_3" arfid="580000005" arftype="CHAR"/>
+			<mail dbf="S256_2" arfid="580000008" arftype="CHAR"/>
+			<system dbf="S32_4" arfid="580000009" arftype="CHAR"/>
+			<cause dbf="S2048_1" arfid="580000010" arftype="CHAR"/>
+			<finishtime dbf="S32_5" arfid="536870916" arftype="TIME"/>
+			<attachname dbf="S256_3" arfid="536870915" arftype="CHAR"/>
+			<attach dbf="S2048_3" arfid="580000022,580000023" arftype="ATTACH"/>
+			<ID dbf="S32_7" arfid="580000026" arftype="CHAR"/>
+			<seq  dbf="S32_1" arfid="580000018" arftype="INTEGER"/>
+			<region dbf="S128_1" arfid="536870919" arftype="CHAR"/>
+		</createProcess>
+	</server>
+	<client url="http://10.70.204.36/axis2/services/ReplyService">
+		<reply>
+			<S32_2 vn="status"/>
+			<S32_3 vn="taskid"/>
+			<S32_4 vn="modifyDate"/>
+			<S64_1 vn="dealer"/>
+			<S64_2 vn="contactNo"/>
+			<S2048_1 vn="worklog"/>
+			<S32_1 vn="ID"/>
+		</reply>
+	</client>
+</sdmptask>
+<dm>
+	<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="Ultrapower_DM_Reply" arfid="580000001">
+		<replyProcess fntype="reply">
+			<outsystem dbf="outsystem" arfid="580000001" arftype="CHAR"/>
+			<serialno dbf="serialno" arfid="580000002" arftype="CHAR"/>
+			<tsk_rult dbf="tsk_rult" arfid="580000003" arftype="CHAR"/>
+			<tsk_description dbf="tsk_description" arfid="580000006" arftype="CHAR"/>
+			<ATTCHNAME dbf="ATTCHNAME" arfid="580000020" arftype="CHAR"/>
+			<ATTCHURL dbf="ATTCHURL" arfid="580000022,580000023" arftype="ATTACH"/>
+		</replyProcess>
+	</server>
+	<client url="http://10.70.204.36/axis2/services/ReplyService">
+		<create>
+			<OUTSYSTEM vn="outsystem"/>
+			<SERIALNO vn="serialno"/>
+			<SUMMARY vn="summary"/>
+			<SRC_TNS vn="src_tns"/>
+			<TARGET_TNS vn="target_tns"/>
+			<IFFIXTASK vn="iffixtask"/>
+			<TASK_TYPE vn="task_type"/>
+			<TABLENAME_STR vn="tablename_str"/>
+			<SRC_OWNER vn="src_owner"/>
+			<TSK_DESCRIPTION vn="tsk_description"/>
+			<TSK_REQUESTER_NAME vn="tsk_requester_name"/>
+			<REQUEST_USER_EMAIL vn="request_user_email"/>
+			<REQUEST_USER_MOBILE vn="request_user_mobile"/>
+		</create>
+	</client>
+</dm>
+<portalWaitDeal>
+	<path>http://localhost:8082/zjitsm</path>
+</portalWaitDeal>
+
+<allevent>
+	<!-- arform : Remedy's table name -->
+	<!-- arfid : Remedy table's field_id -->
+	<server arform="Unify_Interface_Event" arfid="580000001">
+		<createProcess fntype="CREATE">
+			<outsystem dbf="outsystem" arfid="580000001" arftype="CHAR"/>
+			<serialno dbf="serialno" arfid="580000002" arftype="CHAR"/>
+			<workitemid dbf="workitemid" arfid="580000003" arftype="CHAR"/>
+			<summary dbf="summary" arfid="580000004" arftype="CHAR"/>
+			<description dbf="description" arfid="580000005" arftype="CHAR"/>
+			<priority dbf="priority" arfid="536870917" arftype="CHAR"/>
+			<casetype dbf="casetype" arfid="536870920" arftype="CHAR"/>
+			<source dbf="source" arfid="536870921" arftype="CHAR"/>
+			<system dbf="system" arfid="580000006" arftype="CHAR"/>
+			<region dbf="region" arfid="580000007" arftype="CHAR"/>
+			<contactperson dbf="contactperson" arfid="580000011" arftype="CHAR"/>
+			<csp_personid dbf="csp_personid" arfid="580000008" arftype="CHAR"/>
+			<contactphone1 dbf="contactphone1" arfid="580000009" arftype="CHAR"/>
+			<email dbf="email" arfid="580000010" arftype="CHAR"/>
+			<address dbf="address" arfid="536870915" arftype="CHAR"/>
+			<creationtime dbf="creationtime" arfid="580000016" arftype="CHAR"/>
+			<resolvedtime dbf="resolvedtime" arfid="580000015" arftype="CHAR"/>
+			<affixname dbf="affixname" arfid="580000020" arftype="CHAR"/>
+			<affixfullurl dbf="affixfullurl" rfid="580000022,580000023" arftype="ATTACH"/>
+		</createProcess>
+	</server>
+</allevent>
+</root>

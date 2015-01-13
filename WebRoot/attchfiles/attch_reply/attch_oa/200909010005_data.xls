@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="GB2312"?>
+<?mso-application progid="Excel.Sheet"?>
+
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:o="urn:schemas-microsoft-com:office:office">
+<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+<Created>1996-12-17T01:32:42Z</Created>
+<LastSaved>2006-06-30T07:11:53Z</LastSaved>
+<Version>11.5606</Version>
+</DocumentProperties>
+<OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+<RemovePersonalInformation/>
+</OfficeDocumentSettings>
+<ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+<WindowHeight>4530</WindowHeight>
+<WindowWidth>8505</WindowWidth>
+<WindowTopX>480</WindowTopX>
+<WindowTopY>120</WindowTopY>
+<AcceptLabelsInFormulas/>
+<ProtectStructure>False</ProtectStructure>
+<ProtectWindows>False</ProtectWindows>
+</ExcelWorkbook>
+<Styles>
+<Style ss:Name="Normal" ss:ID="Default">
+<Alignment ss:Vertical="Bottom"/>
+<Borders/>
+<Font ss:Size="12" x:CharSet="134" ss:FontName="宋体"/>
+<Interior/>
+<NumberFormat/>
+<Protection/>
+</Style>
+<Style ss:ID="s21">
+<Borders>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Left"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Right"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Top"/>
+</Borders>
+<Font ss:Bold="1" ss:Size="12" x:CharSet="134" ss:FontName="宋体"/>
+</Style>
+<Style ss:ID="s22">
+<Borders>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Left"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Right"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Top"/>
+</Borders>
+</Style>
+<Style ss:ID="s23">
+<Alignment ss:Vertical="Bottom" ss:Horizontal="Center"/>
+<Borders>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Bottom"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Left"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Right"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Top"/>
+</Borders>
+<Interior ss:Pattern="Solid" ss:Color="#00FFFF"/>
+</Style>
+<Style ss:ID="s24">
+<Borders>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Bottom"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Left"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Right"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Top"/>
+</Borders>
+</Style>
+<Style ss:ID="s25">
+<Borders>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Left"/>
+<Border ss:Weight="1" ss:LineStyle="Continuous" ss:Position="Right"/>
+</Borders>
+<Interior/>
+</Style>
+</Styles>
+<Worksheet ss:Name="Sheet1">
+<Table ss:DefaultRowHeight="14.25" ss:DefaultColumnWidth="54" x:FullRows="1" x:FullColumns="1">
+<Column ss:Width="93.75" ss:AutoFitWidth="0"/>
+<Column ss:Span="1" ss:Width="123.75" ss:AutoFitWidth="0"/>
+<Column ss:Width="63.75" ss:AutoFitWidth="0" ss:Index="4"/>
+<Column ss:Width="93.75" ss:AutoFitWidth="0"/>
+<Column ss:Width="153.75" ss:AutoFitWidth="0"/>
+<Column ss:Width="243.75" ss:AutoFitWidth="0"/>
+<Row ss:AutoFitHeight="0">
+<Cell ss:StyleID="s21">
+<Data ss:Type="String">系统角色申请表</Data>
+</Cell>
+<Cell ss:StyleID="s21"/>
+<Cell ss:StyleID="s22"/>
+</Row>
+<Row ss:AutoFitHeight="0">
+<Cell ss:StyleID="s23">
+<Data ss:Type="String">系统</Data>
+</Cell>
+<Cell ss:StyleID="s23">
+<Data ss:Type="String">操作</Data>
+</Cell>
+<Cell ss:StyleID="s23">
+<Data ss:Type="String">操作对象</Data>
+</Cell>
+<Cell ss:StyleID="s23">
+<Data ss:Type="String">手机</Data>
+</Cell>
+<Cell ss:StyleID="s23">
+<Data ss:Type="String">邮件</Data>
+</Cell>
+<Cell ss:StyleID="s23">
+<Data ss:Type="String">操作信息</Data>
+</Cell>
+</Row>
+<Row ss:AutoFitHeight="0">
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">经营分析系统</Data>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">账号用户组变更</Data>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">周维强</Data>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String"/>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">zhouwq@zj.chinamobile.com</Data>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">原有用户组 : ; 变更后的用户组 : 衢州决策者C0组; 员工账号 : zhouwq55; </Data>
+</Cell>
+</Row>
+<Row ss:AutoFitHeight="0">
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">经营分析系统</Data>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">账号用户组变更</Data>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">周维强</Data>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String"/>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">zhouwq@zj.chinamobile.com</Data>
+</Cell>
+<Cell ss:StyleID="s24">
+<Data ss:Type="String">原有用户组 : 衢州营业厅班长; 变更后的用户组 : 衢州片区经理C; 员工账号 : zhouweiqiang; </Data>
+</Cell>
+</Row>
+</Table>
+<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+<Unsynced/>
+<Selected/>
+<Panes>
+<Pane>
+<Number>3</Number>
+<ActiveRow>2</ActiveRow>
+<ActiveCol>6</ActiveCol>
+</Pane>
+</Panes>
+<ProtectObjects>False</ProtectObjects>
+<ProtectScenarios>False</ProtectScenarios>
+</WorksheetOptions>
+</Worksheet>
+<Worksheet ss:Name="Sheet2">
+<Table ss:DefaultRowHeight="14.25" ss:DefaultColumnWidth="54" x:FullRows="1" x:FullColumns="1" ss:ExpandedRowCount="0" ss:ExpandedColumnCount="0"/>
+<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+<Unsynced/>
+<ProtectObjects>False</ProtectObjects>
+<ProtectScenarios>False</ProtectScenarios>
+</WorksheetOptions>
+</Worksheet>
+<Worksheet ss:Name="Sheet3">
+<Table ss:DefaultRowHeight="14.25" ss:DefaultColumnWidth="54" x:FullRows="1" x:FullColumns="1" ss:ExpandedRowCount="0" ss:ExpandedColumnCount="0"/>
+<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+<Unsynced/>
+<ProtectObjects>False</ProtectObjects>
+<ProtectScenarios>False</ProtectScenarios>
+</WorksheetOptions>
+</Worksheet>
+</Workbook>

@@ -1,0 +1,12 @@
+#Thu May 29 14:55:09 CST 2014
+eclipse.preferences.version=1
+encoding//WebRoot/BossServer_interface.jws=gbk
+encoding//WebRoot/OAITEServer_interface.jws=gbk
+encoding//WebRoot/TestWeb.jsp=UTF-8
+encoding//src/BamServer_interface.java=gbk
+encoding//src/BossServer_interface.java=UTF-8
+encoding//src/ClientServer_interface.java=gbk
+encoding//src/com/ultra/dbConn/DBConnectionManager.java=gbk
+encoding//src/com/ultra/interfac/BamServer_interface.java=gbk
+encoding//src/com/ultra/replay/IMEPServer_interface.java=gbk
+encoding//src/test/subString.java=gbk

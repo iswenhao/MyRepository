@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbconfig>
+	<database>
+		<DBSMType>ORACLE</DBSMType>
+		<DBDrivername>oracle.jdbc.driver.OracleDriver</DBDrivername>
+		<DBDriverurl>jdbc:oracle:thin:@192.168.101.32:2012:arsystem</DBDriverurl>
+		<DBUser>zjbam</DBUser>		
+		<DBPassword>ar#admin#</DBPassword>
+		<DBPoolName>orapool</DBPoolName>
+		<DBPoolMinConnection>3</DBPoolMinConnection>
+		<DBPoolMaxConnection>60</DBPoolMaxConnection>
+		<DBPoolTimeoutValue>20000</DBPoolTimeoutValue>
+	</database>
+</dbconfig>

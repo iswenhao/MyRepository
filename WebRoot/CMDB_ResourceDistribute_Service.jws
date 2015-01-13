@@ -1,0 +1,39 @@
+/*
+ * Web service 
+ * author @tiandong
+ * e-mail: tiandong@ultrapower.com.cn
+ * 服务端接收资源管理平台客户端请求后自动生成资源分配工单
+ */
+
+import cn.com.ultrapower.ultraprocess.control.process.solidifyaction.ExpTestAction;
+import java.util.Map;
+public class CMDB_ResourceDistribute_Service{
+   
+	  
+	  String formType;
+	  String completeData;
+	  String desc; 
+	  String formID; 
+	  String summay;
+	  String result;
+	 
+	public String CreaterProcess(Map m) throws Exception{
+	
+	 
+          result = "success";
+	  formType = (String)m.get("formType");
+	  completeData = (String)m.get("completeData");
+	  desc = (String)m.get("desc");
+	  formID = (String)m.get("formID");
+	  summay = "cmdb_table";
+	  
+
+	  ExpTestAction m_ExpTestAction=new ExpTestAction();
+	  
+	  result=m_ExpTestAction.newServer(formType, completeData, desc, formIDm, summay);
+		
+	  return result;
+	
+	}
+    
+}
